@@ -5,11 +5,94 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head th:replace="~{layout/nav :: head}"></head>
+    <link rel="stylesheet" href="../Estilos/estiloInicio.css">
 </head>
 <body>
     <header th:replace="~{layout/nav :: header}"></header>
-    <div>Proyecto</div>
-    <footer th:replace="~{layout/nav :: footer}"/>    
-</body>
+    <div>ferreteria martines</div>
+      
 
+<section>
+    <div class="container">
+        <div class="contenedor">
+            <div class="productos">
+                <p>Herramientas</p>
+                <p>Pesticidas</p>
+                <p>Repuestos</p>
+            </div>
+            <div class="nosotros">
+                <p>Sobre nosotros</p>
+                <p>Nuestra historia</p>
+                <p>Misión y visión</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+ <footer th:replace="~{layout/nav :: footer}"></footer>
+
+</body>
+<style>
+*{
+  margin: 0;
+ 
+  border: 0;
+  font-size: 20px ;
+  vertical-align: baseline;
+
+}
+body {
+  background-color: #87944d;
+  text-align: center;
+  font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
+  color: #ffffff; /* o también puedes usar 'white' */
+}
+
+ 
+ .productos {
+        height: 200px;
+        width: 300px;
+        background-color: #6c757d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .nosotros {
+        height: 200px;
+        width: 300px;
+        background-color: #6c758d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .contenedor {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+    }
+    footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+</style>
 </html>
