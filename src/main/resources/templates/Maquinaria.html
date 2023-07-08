@@ -4,84 +4,104 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to c
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
 <html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head th:replace="~{layout/nav :: head}"></head>
     <link rel="stylesheet" href="../Estilos/estiloInicio.css">
 </head>
 <body>
     <header th:replace="~{layout/nav :: header}"></header>
     <section>
-        <div class="container">
-            <div class="contenedor">
+    <div class="container">
+        <div class="contenedor">
+            <div class="maquinaria">
                 <figure>
-                    <img src="https://www.capris.cr/media/catalog/product/cache/3bfd03bf24e7773e4c7f1ae1b8446efe/c/o/cortadora-de-cesped-desplazamiento-manual-20-pulg-motor-gasolina-5hp-2850rpm-33kg-alpha-cp9-20-5-0a-570593_mjgdnb0pzfreyeso.webp" alt="Producto"width="300"/>
-                    <figcaption>Cortadora de Cesped Manual</figcaption>
-                    <figure>
-                        </body>
-                        <footer th:replace="~{layout/nav :: footer}"></footer>
-                        <style>
-                            *{
-                                margin: 0;
+                    <img src="https://www.capris.cr/media/catalog/product/cache/3bfd03bf24e7773e4c7f1ae1b8446efe/c/o/cortadora-de-cesped-desplazamiento-manual-20-pulg-motor-gasolina-5hp-2850rpm-33kg-alpha-cp9-20-5-0a-570593_mjgdnb0pzfreyeso.webp" alt="Producto"width="300">
+                    <figcaption alt="Producto"width="300">Cortadora de Cesped Manual</figcaption>
+                </figure>
+                <button onclick="mostrarTexto()">Agregar al carrito</button>
+            </div>
+            <div class="maquinaria">
+                <figure>
+                    <img src="https://www.capris.cr/media/catalog/product/cache/3bfd03bf24e7773e4c7f1ae1b8446efe/b/o/bomba-para-agua-2pulg-158gpm-generac-6822-st20k-370509_ojlpjdnb8janrurl.webp" alt="Producto"width="300">
+                    <figcaption alt="Producto"width="300">Bomba de agua 2"</figcaption>
+                </figure>
+                <button onclick="mostrarTexto()">Agregar al carrito</button>
+            </div>
+            <div class="maquinaria">
+                <figure>
+                    <img src="https://www.capris.cr/media/catalog/product/cache/3bfd03bf24e7773e4c7f1ae1b8446efe/m/o/motosierra-a-gasolina-16-pulg-35cc-makita-ea3501s40b-240-111743_544zirwwzkuvazqz.webp" alt="Producto"width="300">
+                    <figcaption alt="Producto"width="300">Motosierra</figcaption>
+                </figure>
+                <button onclick="mostrarTexto()">Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+        
+</body>
+</section>
+ <footer th:replace="~{layout/nav :: footer}"></footer>
+<style>
+*{
+  margin: 0;
+ 
+  border: 0;
+  font-size: 20px ;
+  vertical-align: baseline;
 
-                                border: 0;
-                                font-size: 20px ;
-                                vertical-align: baseline;
-                            }
-                            body {
-                                background-color: #87944d;
-                                text-align: center;
-                                font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
-                                color: #ffffff; /* o también puedes usar 'white' */
-                            }
-                            .productos {
-                                height: 200px;
-                                width: 300px;
-                                background-color: #6c757d;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                border-radius: 10px;
-                                gap: 10px;
-                                padding: 10px;
-                            }
-                            .nosotros {
-                                height: 200px;
-                                width: 300px;
-                                background-color: #6c758d;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                border-radius: 10px;
-                                gap: 10px;
-                                padding: 10px;
-                            }
-                            .contenedor {
-                                display: flex;
-                                justify-content: space-between;
-                                background-color: #6c758d;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                border-radius: 10px;
-                                gap: 10px;
-                                padding: 10px;
-                                margin-top: 15px;
-                            }
-                            footer {
-                                position: fixed;
-                                left: 0;
-                                bottom: 0;
-                                width: 100%;
-                                background-color: #f8f9fa;
-                                color: #333;
-                                text-align: center;
-                                padding: 20px;
-                            }
-                        </style>
-                        </html>
+}
+body {
+  background-color: #bcccc6;
+  text-align: center;
+  font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
+  color: #ffffff; /* o también puedes usar 'white' */
+}
+
+ 
+ .productos {
+        height: 200px;
+        width: 300px;
+        background-color: #6c757d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .maquinaria {
+        height: 465px;
+        width: 300px;
+        background-color: #0ec72d;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        gap: 10px;
+        padding: 4px;
+        margin-top:55px;
+    }
+
+    .contenedor {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        
+        footer {
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 20px;
+            margin-top: 15px;
+            height: 60px;
+        }
+    }
+</style>
+</html>
