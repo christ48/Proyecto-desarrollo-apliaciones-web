@@ -8,46 +8,50 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <style>
-            body {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 100vh;
-            }
+    <head th:replace="~{layout/nav :: head}"></head>
+    <link rel="stylesheet" href="../Estilos/estiloInicio.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-            .facturacion {
-                border: 1px solid black;
-                padding: 10px;
-                display: flex;
-                justify-content: space-between;
-            }
+        .facturacion {
+            border: 1px solid black;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
 
-            .izquierda {
-                margin-right: 10px;
-            }
+        .izquierda {
+            margin-right: 10px;
+        }
 
-            .titulo {
-                font-weight: bold;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="facturacion">
-            <div class="izquierda">
-                <p class="titulo">Producto:</p>
-                <p class="titulo">Precio:</p>
-                <p class="titulo">Cantidad:</p>
-                <p class="titulo">IVA:</p>
-                <p class="titulo">Total:</p>
-            </div>
-            <div class="derecha">
-                <p>Producto 1</p>
-                <p>$10.00</p>
-                <p>2</p>
-                <p>$2.00</p>
-                <p>$22.00</p>
-            </div>
+        .titulo {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header th:replace="~{layout/nav :: header}"></header>
+    <div class="facturacion">
+        <div class="izquierda">
+            <p class="titulo">Producto:</p>
+            <p class="titulo">Precio:</p>
+            <p class="titulo">Cantidad:</p>
+            <p class="titulo">IVA:</p>
+            <p class="titulo">Total:</p>
         </div>
-    </body>
+        <div class="derecha">
+            <p>Producto 1</p>
+            <p>$10.00</p>
+            <p>2</p>
+            <p>$2.00</p>
+            <p>$22.00</p>
+        </div>
+    </div>
+    <footer th:replace="~{layout/nav :: footer}"></footer>
+</body>
 </html>
