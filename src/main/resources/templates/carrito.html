@@ -11,9 +11,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <head th:replace="~{layout/nav :: head}"></head>
     <link rel="stylesheet" href="../Estilos/estiloInicio.css">
     <style>
+        body {
+            background-color: #87944d;
+            text-align: center;
+            font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
+            color: #ffffff;
+        }
+
         .facturacion {
-            border: 1px solid black;
-            padding: 10px;
+            color: black;
+            width: 50%;
+            border: 2px solid black;
+            border-radius: 20px;
+            margin: 58px;
+            padding: 40px;
             display: flex;
             justify-content: space-between;
         }
@@ -24,6 +35,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         .titulo {
             font-weight: bold;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            color: #333;
+
+            padding: 20px;
         }
     </style>
 </head>
