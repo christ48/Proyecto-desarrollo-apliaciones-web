@@ -26,4 +26,8 @@ public class NostrosController {
         return "productos";
     }
 
+    @GetMapping("/carrito")
+    public String carrito() {
+        return "carrito";
+    }
 }
