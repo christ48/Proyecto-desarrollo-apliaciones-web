@@ -31,10 +31,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
         .izquierda {
             margin-right: 10px;
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
         }
-
+        
         .titulo {
             font-weight: bold;
+        }
+
+        .iconos {
+            color: #000000;
+            padding-top: 6px;
         }
 
         footer {
@@ -44,7 +52,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             width: 100%;
             background-color: #f8f9fa;
             color: #333;
-
             padding: 20px;
         }
     </style>
@@ -60,11 +67,17 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <p class="titulo">Total:</p>
         </div>
         <div class="derecha">
-            <p>Producto 1</p>
-            <p>$10.00</p>
-            <p>2</p>
-            <p>$2.00</p>
-            <p>$22.00</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <div class="iconos">
+                <i class="fa-brands fa-cc-visa fa-2xl"></i>
+                <i class="fa-brands fa-cc-amex fa-2xl"></i>
+                <i class="fa-brands fa-paypal fa-2xl"></i>
+                <i class="fa-regular fa-credit-card fa-2xl"></i>
+            </div>
         </div>
     </div>
     <footer th:replace="~{layout/nav :: footer}"></footer>
