@@ -1,0 +1,23 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 7 jul. 2023, 15:50:37
+    Author     : lossa
+*/
+
+*{
+  margin: 0;
+ 
+  border: 0;
+  font-size: 20px ;
+  vertical-align: baseline;
+
+}
+
+body {
+  background-color: #000000;
+  text-align: center;
+  font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
+}
