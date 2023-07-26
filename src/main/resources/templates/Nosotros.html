@@ -3,7 +3,8 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Nosotros</title>
     <meta charset="UTF-8">
@@ -26,18 +27,19 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 
             </div>
             <div class="nosotros">
-                 <label for="texto">Si desea contactarnos:</label>
-                 <input type="text" id="texto" />
-                 <button onclick="mostrarTexto()">Enviar</button>
+               <section th:replace="~{layout/FragmentosMensaje:: botonesAgregar}"/>
+               
+               
+
                
             </div>
         </div>
     </div>
 </section>
+    <section th:replace="~{layout/FragmentosMensaje :: listadoMensajes}"/>
+    <section th:replace="~{layout/FragmentosMensaje :: agregarProducto}"/>
     
     
-    
-    <footer th:replace="~{layout/nav :: footer}"></footer>
     </body>
     <style>
         *{
@@ -53,7 +55,7 @@ body {
   background-color: #87944d;
   text-align: center;
   font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
-  color: #ffffff;
+ 
 }
  .Nostorcontenedor {
         height: 400px;
@@ -68,19 +70,30 @@ body {
         padding: 10px;
     }
 
-    .nosotros {
-        height: 200px;
-        width: 300px;
-        background-color: #6c758d;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        gap: 10px;
-        padding: 10px;
-        
-    }
+  .nosotros {
+    width: 300px;
+    background-color: #f0f0f0;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.nosotros button {
+    width: 100%;
+    background-color: #6c758d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 10px;
+    cursor: pointer;
+}
+
+.nosotros button:hover {
+    background-color: #5b6678;
+}
+
   
 
 

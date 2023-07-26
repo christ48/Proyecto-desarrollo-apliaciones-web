@@ -42,14 +42,18 @@ public class Herramientas implements Serializable {
     
     @Column(name="Marcar")
     private String Marcar;
+    
+    @Column(name="Ruta_Imagen")
+    private String Ruta_Imagen;
     public Herramientas(){}
     
-    public Herramientas(String Nombre, float Precio,int Unidades,String Descripcion,String Marcar){
+    public Herramientas(String Nombre, float Precio,int Unidades,String Descripcion,String Marcar,String Ruta_Imagen){
         this.Nombre=Nombre;
         this.Precio=Precio;
         this.Unidades=Unidades;
         this.Descripcion=Descripcion;
         this.Marcar=Marcar;
+        this.Ruta_Imagen=Ruta_Imagen;
     }
     
             

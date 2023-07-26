@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Herramientas</title>
+   <head th:replace="~{layout/nav :: head}"></head>
+</head>
+<body>
+     <header th:replace="~{layout/nav :: header}"></header>
+<section th:fragment="listadoProductos" id="Herramientas">
+    <div class="container herramientas-container" style="display: flex; flex-wrap: wrap; justify-content: space-between;">
+        <div class="herramienta-card card" th:each="herramienta, contador : ${herramientas}">
+            <div class="card-header">
+                
+                <h5 th:text="${herramienta.nombre}"></h5>
+            </div>
+            <div class="card-body">
+                <p class="card-text" th:text="${herramienta.descripcion}"></p>
+            </div>
+            <div class="card-body">
+                <p class="card-text" th:text="${herramienta.precio}"></p>
+                
+            </div>
+            <div class="card-footer">
+                <a th:href="@{/ProductoSeleccionado/{IdHerramienta}(IdHerramienta=${herramienta.IdHerramienta})}" class="btn btn-success">
+                    <i class="fas fa-info-circle"></i> Ver detalles
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<footer th:replace="~{layout/nav :: footer}"></footer>
+
+
+</body>
+<style>
+.herramientas-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.herramienta-card {
+    width: calc(33.33% - 20px);
+    margin-bottom: 20px;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+
+
+    
+    
+    
+    
+</style>
+</html>
+

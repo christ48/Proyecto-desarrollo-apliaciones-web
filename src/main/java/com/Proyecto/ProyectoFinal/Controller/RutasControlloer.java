@@ -10,16 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 @Slf4j
-public class NostrosController {
+public class RutasControlloer {
       @GetMapping("/")
     public String inicio() {
         return "index";
     }
 
-    @GetMapping("/Nosotros")
-    public String nosotros() {
-        return "Nosotros";
-    }
 
     @GetMapping("/productos")
     public String productos() {
@@ -39,5 +35,5 @@ public class NostrosController {
      public String prueba(){
          return"prueba";
      }
-   
+    
 }

@@ -10,9 +10,18 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Taller mauricio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script th:serc="@{/js/rutinas.js}"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<link th:href="@{/webjars/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet" />
+
+
     </head>
     <body>
-        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
+   <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-md-4">   
@@ -36,7 +45,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <h5 class="modal-title">Agregar Producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form th:action="@{/Herramientas/guardar}" th:object="${herramientas}" method="POST" class="was-validated" enctype="multipart/form-data">
+                <form th:action="@{/Herramientas/guardar}" th:object="${herramienta}" method="POST" class="was-validated" enctype="multipart/form-data">
                     <div class="modal-body">
                         <div class="mb-3">
                             <label for="nombre">Nombre</label>
@@ -48,7 +57,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </div>
                         <div class="mb-3">
                             <label for="Unidades">Cantidad</label>
-                            <input type="text" class="form-control" name="Unidades" required="true"/>
+                            <input type="text" class="form-control" name="unidades" required="true"/>
                         </div>
                         <div class="mb-3">
                             <label for="descripcion">Descripción</label>
@@ -56,7 +65,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </div>
                         <div class="mb-3">
                             <label for="Marcar">Marca</label>
-                            <input type="text" class="form-control" name="Marcar" required="true"/>
+                            <input type="text" class="form-control" name="marcar" required="true"/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="imagen">[[#{herramienta.ruta_Imagen}]]</label>
+                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                            <img id="blah" src="#" alt="Vista previa de la imagen" height="200"/>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -67,6 +81,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         </div>
     </div>
 </section>
+
+
+
 <section th:fragment="editarProducto">
     <div class="row">
         <div class="col-md-2"></div>
@@ -134,6 +151,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <th th:text="#{Herramienta.cantidad}">Cantidad</th>
                                     <th th:text="#{Herramienta.descripcion}">Descripción</th>
                                     <th th:text="#{Herramienta.marcar}">Marca</th>
+                                    
+
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -145,6 +164,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <td th:text="${herramienta.unidades}"></td>
                                     <td th:text="${herramienta.descripcion}"></td>
                                     <td th:text="${herramienta.marcar}"></td>
+                                    
+
                                     <td>
                                        <a th:href="@{/eliminar/{IdHerramienta}(IdHerramienta=${herramienta.IdHerramienta})}" class="btn btn-danger">
                                             <i class="fas fa-trash"></i> [[#{accion.eliminar}]]
@@ -185,6 +206,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <th>Cantidad</th>
                 <th>Descripción</th>
                 <th>Marca</th>
+                <th>Ruta imagen</th>
             </tr>
         </thead>
         <tbody>
@@ -195,6 +217,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <td th:text="${herramienta.Unidades}"></td>
                 <td th:text="${herramienta.Descripcion}"></td>
                 <td th:text="${herramienta.Marca}"></td>
+                <td th:text="${herramienta.Ruta_Imagen}"></td>
             </tr>
         </tbody>
     </table>
@@ -221,4 +244,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </section>                
     
     </body>
+    <script>
+        function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah')
+                    .attr('src', e.target.result)
+                    .height(200);
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+function addCard(formulario) {
+    var valor = formulario.elements[0].value;
+    var url = '/carrito/agregar';
+    url = url + '/' + valor;
+    $("#resultsBlock").load(url);
+}
+        
+    </script>
 </html>
