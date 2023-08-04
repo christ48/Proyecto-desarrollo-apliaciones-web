@@ -10,13 +10,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Taller mauricio</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script th:serc="@{/js/rutinas.js}"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<link th:href="@{/webjars/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet" />
+        
+
+
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <link th:href="@{/webjars/font-awesome/6.0.0-beta3/css/all.min.css}" rel="stylesheet" />
 
 
     </head>
@@ -118,6 +120,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                         <div class="mb-3">
                                             <label for="Marcar">Marca</label>
                                             <input type="text" class="form-control" name="Marcar" th:field="*{Marcar}" required="true" />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="imagen">[[#{herramienta.ruta_Imagen}]]</label>
+                                            <input class="form-control" type="file" name="imagenFile" onchange="readURL(this);"/>
+                                            <img id="blah" th:src="@{${herramienta.Ruta_Imagen}}" alt="Vista previa de la imagen" height="200"/>
                                         </div>
                                     </div>
                                 </div>
@@ -244,25 +251,5 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </section>                
     
     </body>
-    <script>
-        function readURL(input) {
-    if (input.files && input.files[0]) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            $('#blah')
-                    .attr('src', e.target.result)
-                    .height(200);
-        };
-        reader.readAsDataURL(input.files[0]);
-    }
-}
 
-function addCard(formulario) {
-    var valor = formulario.elements[0].value;
-    var url = '/carrito/agregar';
-    url = url + '/' + valor;
-    $("#resultsBlock").load(url);
-}
-        
-    </script>
 </html>

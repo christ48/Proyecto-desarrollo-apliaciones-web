@@ -15,11 +15,11 @@ import org.springframework.web.multipart.MultipartFile;
 public interface FirebaseStorageService {
    public String cargaImagen(MultipartFile archivoLocalCliente, String carpeta, Long id);
    
-   final String BucketName="proyecto-desarrollo-web-7d3f7.appspot.com";
+   final String BucketName="tallerproyecto-b1936.appspot.com";
    
-   final String rutaSuperiorStorage="Proyecto-Desarrollo-Web";
+   final String rutaSuperiorStorage="taller_proyecto";
    
    final String rutaJsonFile="firebase";
    
-   final String archivoJsonFile="proyecto-desarrollo-web-7d3f7-firebase-adminsdk-wivod-cce208cb6f";
+   final String archivoJsonFile="tallerproyecto-b1936-firebase-adminsdk-fblv1-467af74319";
 }

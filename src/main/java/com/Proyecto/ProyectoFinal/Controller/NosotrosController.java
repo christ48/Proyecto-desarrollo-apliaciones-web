@@ -29,11 +29,11 @@ public class NosotrosController {
      List <Mensaje> mensaje=mensajeService.getMensajes();
      model.addAttribute("mensaje",mensaje);
      model.addAttribute("Total Mensajes",mensaje.size());
-     return "Nosotros";
+     return "/Nosotros";
      
      }
      @PostMapping("/Nosotros/guardar")
-     public String MensajeGuardar(@ModelAttribute Mensaje mensaje){
+     public String MensajeGuardar(Mensaje mensaje){
          mensajeService.saveMensaje(mensaje);
          return "redirect:/Nosotros";
      

@@ -53,25 +53,25 @@ public class HerramientaController {
 
     @Autowired
     private FirebaseStorageServiceImpl firebaseStorageService;
-@PostMapping("/guardar")
-public String herramientaGuardar(Herramientas herramienta,
-                                 @RequestParam("imagenFile") MultipartFile imagenFile) {
-    if (!imagenFile.isEmpty()) {
-        herramientaService.saveHerramienta(herramienta);
-         String rutaImagen = firebaseStorageService.cargaImagen(
-                imagenFile,
-                "herramienta",
-                herramienta.getIdHerramienta());
 
-        herramienta.setRuta_Imagen(rutaImagen);
+    @PostMapping("/guardar")
+    public String herramientaGuardar(Herramientas herramienta,
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
+        if (!imagenFile.isEmpty()) {
+            herramientaService.saveHerramienta(herramienta);
+            String rutaImagen = firebaseStorageService.cargaImagen(
+                    imagenFile,
+                    "herramienta",
+                    
+                    herramienta.getIdHerramienta());
 
+            herramienta.setRuta_Imagen(rutaImagen);
+
+        }
         herramientaService.saveHerramienta(herramienta);
-    } else {
-        herramientaService.saveHerramienta(herramienta);
+        System.out.println(herramienta);
+        return "redirect:/Herramientas";
     }
-
-    return "redirect:/Herramientas";
-}
 
 
     @GetMapping("/eliminar/{IdHerramienta}")

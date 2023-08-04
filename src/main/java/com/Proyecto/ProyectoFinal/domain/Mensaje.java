@@ -28,10 +28,10 @@ public class Mensaje implements Serializable{
     @Column(name = "Id_Mensaje")
     private long Id_Mensaje;
     
-     @Column(name="Nombre",length = 50)
+     
      private String Nombre;
      
-      @Column(name="Mensaje",length = 150)
+     
       private String Mensaje;
       
       public Mensaje(){
