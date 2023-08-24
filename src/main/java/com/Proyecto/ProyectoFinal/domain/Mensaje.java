@@ -28,16 +28,16 @@ public class Mensaje implements Serializable{
     @Column(name = "Id_Mensaje")
     private long Id_Mensaje;
     
+    @Column(name="Nombre")
+    private String Nombre;
      
-     private String Nombre;
-     
-     
-      private String Mensaje;
+    @Column(name="Mensaje")
+    private String Mensaje;
       
-      public Mensaje(){
+    public Mensaje(){
       }
      
-     public Mensaje(String Nombre,String Mensaje){
+    public Mensaje(String Nombre,String Mensaje){
          this.Nombre=Nombre;
          this.Mensaje=Mensaje;
      

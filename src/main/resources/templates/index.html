@@ -1,159 +1,152 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>TODO supply a title</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <head th:replace="~{layout/nav :: head}"></head>
-    <link rel="stylesheet" href="../Estilos/estiloInicio.css">
+
 </head>
 <body>
     <header th:replace="~{layout/nav :: header}"></header>
     <div style="font-size: 48px;">ferreteria martines</div>
-      
-<section>
-    <div class="container">
-        <div class="contenedor">
-            <div class="productos">
-                <div class="contenido">
-                    <p>Herramientas</p>
-                     <a th:href="@{/mostrarProductos?vista=ProductosHerramientas}">
-                       <img src="../herramientasJardineria.png" alt="Herramientas" id="imagenEnlace">
-                    </a>
-                </div>
-                <div class="item">
-                    <p>Pesticidas</p>
-                    <img src="../pesticida.png" alt="Pesticidas">
-                </div>
-                <div class="item">
-                    <p>Repuestos</p>
-                    <img src="../repuestos.png" alt="Repuestos">
+
+    <section>
+        <div class="container">
+            <div class="contenedor">
+                <div class="productos">
+                    <div class="contenido">
+                        <p>Herramientas</p>
+                        <a th:href="@{/Iventario}">
+                            <img src="/imagenes/herramientasJardineria.png" alt="Herramientas" id="imagenEnlace">
+                        </a>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
 
-<div class="otros-elementos">
-    <div class="nosotros">
-        <h2>Sobre nosotros</h2>
-        <ul>
-            <li><a th:href="@{/Nosotros}">Nuestra historia</a></li>
-            <li><a th:href="@{/Nosotros}">Misión y visión</a></li>
-        </ul>
-    </div>
-</div>
+        <div class="otros-elementos">
+            <div class="nosotros">
+                <h2>Sobre nosotros</h2>
+                <ul>
+                    <li><a th:href="@{/Nosotros}">Nuestra historia</a></li>
+                    <li><a th:href="@{/Nosotros}">Misión y visión</a></li>
+                </ul>
+            </div>
+        </div>
 
-</section>
+    </section>
 
-<footer th:replace="~{layout/nav :: footer}"></footer>
-
+    <footer th:replace="~{layout/nav :: footer}"></footer>
+   
 </body>
-</html>
+
 
 <style>
-*{
-  margin: 0;
- 
-  border: 0;
-  font-size: 20px ;
-  vertical-align: baseline;
+    *{
+        margin: 0;
 
-}
+        border: 0;
+        font-size: 20px ;
+        vertical-align: baseline;
 
-body {
-  background-color: #87944d;
-  text-align: center;
-  font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
-  color: #ffffff;
-}
-
- 
- .productos {
-     display: flex;
     }
- .contenido,
-.item {
-    text-align: center;
-    margin-right: 20px;
-}
+
+    body {
+        background-color: #87944d;
+        text-align: center;
+        font-family: 'Nuosu SIL', 'Oswald', 'Roboto Condensed', sans-serif;
+        color: #ffffff;
+    }
 
 
-.contenido p,
-.item p {
-    margin: 0;
-    padding: 5px;
-    font-size: 18px;
-    font-weight: bold;
-}
-.contenido img,
-.item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-   .otros-elementos {
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 15px;
-}
-
-.nosotros {
-    width: 300px;
-    background-color: #6c758d;
-    border-radius: 10px;
-    padding: 20px;
-    color: #fff;
-}
-
-.nosotros h2 {
-    margin: 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #fff;
-}
-
-.nosotros ul {
-    list-style: none;
-    padding: 0;
-}
-
-.nosotros li {
-    padding: 5px 0;
-}
-
-.nosotros a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.nosotros a:hover {
-    color: #e8e8e8;
-}
+    .productos {
+        display: flex;
+    }
+    .contenido,
+    .item {
+        text-align: center;
+        margin-right: 20px;
+    }
 
 
-.contenedor {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-footer {
-    
-    bottom: 0;
-    width: 100%;
-    background-color: #f8f9fa;
-    color: #333;
-    padding: 20px;
-    z-index: 999;
-}
+    .contenido p,
+    .item p {
+        margin: 0;
+        padding: 5px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .contenido img,
+    .item img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
 
-.container {
-    display: flex;
-    justify-content: center;
-    margin-top: 15px;
-}
+    .otros-elementos {
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 15px;
+    }
+
+    .nosotros {
+        width: 300px;
+        background-color: #6c758d;
+        border-radius: 10px;
+        padding: 20px;
+        color: #fff;
+    }
+
+    .nosotros h2 {
+        margin: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #fff;
+    }
+
+    .nosotros ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .nosotros li {
+        padding: 5px 0;
+    }
+
+    .nosotros a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    .nosotros a:hover {
+        color: #e8e8e8;
+    }
+
+
+    .contenedor {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+
+        bottom: 0;
+        width: 100%;
+        background-color: #f8f9fa;
+        color: #333;
+        padding: 20px;
+        z-index: 999;
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
 
 
 

@@ -12,33 +12,30 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <section th:fragment="botonesAgregar" class="py-4 mb-4 bg-light">
-    <div class="container nosotros"> <!-- Agrega la clase "nosotros" al contenedor -->
-        <div class="row">
-            <div class="col-md-12"> <!-- Modifica la clase de columna para ocupar todo el ancho -->
-                <button 
-                    type="button" 
-                    class="btn btn-primary btn-block mb-3" 
-                    data-bs-toggle="modal" 
-                    data-bs-target="#agregarProducto">
-                    <i class="fas fa-plus"></i> Enviar comentario
-                </button>
+    <section th:fragment="botonesAgregar">
+        <div class="container nosotros">
+            <div class="row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary btn-block mb-3"
+                            data-bs-toggle="modal" data-bs-target="#AgregarCOmentario">
+                        <i class="fas fa-plus"></i> Enviar comentario
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
         
         
-<section th:fragment="agregarProducto">
-    <div id="agregarProducto" class="modal fade" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<section th:fragment="Enviarmensaje">
+    <div id="AgregarCOmentario" class="modal fade" tabindex="1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="modal-header bg-info text-white">
                     <h5 class="modal-title">Agregar Producto</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form th:action="@{/Nosotros/guardar}" th:object="${mensaje}" method="POST" class="was-validated">
+                <form th:action="@{/Nosotros/guardar}" th:object="${Mensaje}" method="POST" class="was-validated">
                   
                     <div class="modal-body">
                         <div class="mb-3">
@@ -83,7 +80,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <th>#</th>
                                     <th>Nombre</th>
                                     <th>Mensaje</th>
-                                    <th>Acciones</th>
+                                    <th sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,7 +89,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                                     <td th:text="${mensaje.nombre}"></td>
                                     <td th:text="${mensaje.mensaje}"></td>
                                     <td>
-                                        <a th:href="@{/mensajeEliminar/{Id_Mensaje}(Id_Mensaje=${mensaje.id_Mensaje})}" class="btn btn-danger">
+                                        <a th:href="@{/mensajeEliminar/{Id_Mensaje}(Id_Mensaje=${mensaje.id_Mensaje})}" class="btn btn-danger"sec:authorize="hasRole('ROLE_ADMIN')" >
                                             <i class="fas fa-trash"></i> Eliminar
                                         </a>
                                     </td>

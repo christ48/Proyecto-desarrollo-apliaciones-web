@@ -11,13 +11,18 @@ package com.Proyecto.ProyectoFinal.Service;
 import com.Proyecto.ProyectoFinal.domain.Herramientas;
 import java.util.List;
 public interface HerramientaService {
-    List<Herramientas> getHerramientas();
+    public List<Herramientas> getHerramientas();
     
-    Herramientas getHerramienta(Long IdHerramienta);
+    public Herramientas getHerramienta(Herramientas herramientas);
     
     void saveHerramienta(Herramientas herramienta);
     
     void deleteHerramienta(Long IdHerramienta);
     
     void updateHerramienta(Herramientas herramienta);
+    
+    public Herramientas getHerramientaById(Long idHerramienta);
+    
+   
+
 }

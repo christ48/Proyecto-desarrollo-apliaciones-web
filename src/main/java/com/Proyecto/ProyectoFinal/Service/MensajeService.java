@@ -12,7 +12,7 @@ import java.util.List;
 public interface MensajeService {
     List<Mensaje> getMensajes();
     
-    Mensaje getMensaje(Long Id_Mensaje);
+    Mensaje getMensaje(Mensaje mensaje);
     
     void saveMensaje(Mensaje mensaje);
     

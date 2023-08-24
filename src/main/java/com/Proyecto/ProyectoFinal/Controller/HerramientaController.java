@@ -4,11 +4,12 @@
  */
 package com.Proyecto.ProyectoFinal.Controller;
 
+import com.Proyecto.ProyectoFinal.Service.ComentariosProductosService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import com.Proyecto.ProyectoFinal.domain.Herramientas;
 import com.Proyecto.ProyectoFinal.Service.HerramientaService;
-import com.Proyecto.ProyectoFinal.Service.Impl.FirebaseStorageServiceImpl;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -17,8 +18,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
 
 /**
  *
@@ -30,17 +29,18 @@ public class HerramientaController {
 
     @Autowired
     private HerramientaService herramientaService;
+    @Autowired
+    private ComentariosProductosService comentarioPservice;
 
    @GetMapping("/mostrarProductos")
     public String mostrarProductos(@RequestParam(name = "vista", required = false, defaultValue = "Herramientas") String vista, Model model) {
     List<Herramientas> herramientas = herramientaService.getHerramientas();
     model.addAttribute("herramientas", herramientas);
-    
+    model.addAttribute("totalProductos", herramientas.size());
     if ("ProductosHerramientas".equals(vista)) {
-        return "ProductosHerramientas";
+        return "Herramientas/ProductosHerramientas";
     } else {
-        model.addAttribute("totalProductos", herramientas.size());
-        return "Herramientas";
+        return "Herramientas/Herramientas";
     }
 }
 
@@ -48,51 +48,44 @@ public class HerramientaController {
    @PostMapping("/Herramientas/guardar")
     public String HerramientaGuardar(@ModelAttribute Herramientas herramienta) {
     herramientaService.saveHerramienta(herramienta);
-     return "redirect:/mostrarProductos?vista=Herramientas";
+     return "redirect:/mostrarProductos?vista=Herramientas/Herramientas";
 }
 
-    @Autowired
-    private FirebaseStorageServiceImpl firebaseStorageService;
 
-    @PostMapping("/guardar")
-    public String herramientaGuardar(Herramientas herramienta,
-            @RequestParam("imagenFile") MultipartFile imagenFile) {
-        if (!imagenFile.isEmpty()) {
-            herramientaService.saveHerramienta(herramienta);
-            String rutaImagen = firebaseStorageService.cargaImagen(
-                    imagenFile,
-                    "herramienta",
-                    
-                    herramienta.getIdHerramienta());
+@PostMapping("/Herramientas/nuevo")
+public String herramientaGuardar(@ModelAttribute Herramientas herramienta){
+    herramientaService.saveHerramienta(herramienta);
+    return "redirect:/mostrarProductos?vista=Herramientas";
+}
 
-            herramienta.setRuta_Imagen(rutaImagen);
-
-        }
-        herramientaService.saveHerramienta(herramienta);
-        System.out.println(herramienta);
-        return "redirect:/Herramientas";
-    }
-
-
-    @GetMapping("/eliminar/{IdHerramienta}")
+    @GetMapping("/Herramientaeliminar/{IdHerramienta}")
     public String HerramientaEliminar(@PathVariable("IdHerramienta") Long IdHerramienta) {
         herramientaService.deleteHerramienta(IdHerramienta);
-        return "redirect:/mostrarProductos?vista=Herramientas";
+        return "redirect:/mostrarProductos?vista=Herramientas/Herramientas";
     }
 
     @GetMapping("/ActualizarHerramienta/{IdHerramienta}")
-    public String HerramientaActualizar(@PathVariable("IdHerramienta") Long IdHerramienta, Model model) {
-        Herramientas herramienta = herramientaService.getHerramienta(IdHerramienta);
+    public String HerramientaActualizar(@PathVariable("IdHerramienta")Herramientas herramientas, Model model) {
+        Herramientas herramienta = herramientaService.getHerramienta(herramientas);
         model.addAttribute("herramienta", herramienta);
-        return "ActualizarHerramienta";
+        return "Herramientas/ActualizarHerramienta";
     }
     
-    @GetMapping("/ProductoSeleccionado/{IdHerramienta}")
-    public String ProductoSeleccionado(@PathVariable("IdHerramienta") Long IdHerramienta, Model model) {
-        Herramientas herramienta = herramientaService.getHerramienta(IdHerramienta);
-        model.addAttribute("herramienta", herramienta);
-        return "ProductoSeleccionado";
-    }
+@GetMapping("/ProductoSeleccionado/{IdHerramienta}")
+public String ProductoSeleccionado(@PathVariable("IdHerramienta") Herramientas herramientas, Model model) {
+    Herramientas herramienta = herramientaService.getHerramienta(herramientas);
+    model.addAttribute("herramienta", herramienta);
+    return "Herramientas/ProductoSeleccionado";
+}
+
+@GetMapping("/listadoHerramientas")
+public String ListadoHerramient(Model model){
+    var herramientas =herramientaService.getHerramientas();
+    model.addAttribute("Herramientas",herramientas);
+    return "Herramientas/listado";
+}
+
+
     
 }
 

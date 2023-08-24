@@ -28,8 +28,8 @@ public class MensajeServiceImpl implements MensajeService {
      }
     @Override
     @Transactional(readOnly = true)
-    public Mensaje getMensaje(Long Id_Mensaje){
-        return mensajeDao.findById(Id_Mensaje).orElse(null);
+    public Mensaje getMensaje(Mensaje mensaje){
+        return mensajeDao.findById(mensaje.getId_Mensaje()).orElse(null);
     }
         @Override
         @Transactional

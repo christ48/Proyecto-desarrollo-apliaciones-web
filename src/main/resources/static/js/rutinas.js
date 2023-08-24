@@ -17,3 +17,15 @@ function addCard(formulario) {
     url = url + '/' + valor;
     $("#resultsBlock").load(url);
 }
+// rutinas.js
+
+// Función para mostrar la imagen binaria en un elemento <img>
+function mostrarImagenBinaria(imagenBinaria) {
+    var imgElement = document.getElementById('imagenMostrada');
+    
+    // Convertir el array de bytes en una URL de datos (Data URL)
+    var dataURL = 'data:image/png;base64,' + btoa(String.fromCharCode.apply(null, imagenBinaria));
+    
+    imgElement.src = dataURL;
+    imgElement.style.display = 'block'; // Mostrar la imagen
+}

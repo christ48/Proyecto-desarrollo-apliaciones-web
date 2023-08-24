@@ -3,7 +3,9 @@
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
 Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:fragment="head">
         <title>Proyecto final</title>
         <meta charset="UTF-8"/>
@@ -15,51 +17,63 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>        
     </head>
     <body>
-      <header th:fragment="header" class="header">
-    <nav class="navbar navbar-expand-sm navbar-dark bg-success p-0">
-       
-        <div class="container">
-             <i class="fa-solid fa-leaf fa-beat"></i>
-            <a th:href="@{/}" class="navbar-brand">Proyecto</a>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                <ul class="navbar-nav">
-                   <li><a th:href="@{/Nosotros}" class="nav-link">Nosotros</a></li>
-                   <li><a th:href="@{/Maquinaria}" class="nav-link">Producto</a></li>
-                   <li><a th:href="@{/carrito}" class="nav-link">Carrito</a></li>
-                   <li><a th:href="@{/}" class="nav-link">Inicio</a></li>
-                   <li><a th:href="@{/mostrarProductos}" class="nav-link">Herramientas</a></li>
-                   <li><a th:href="@{/mostrarProductos?vista=ProductosHerramientas}" class="nav-link">Mostrador</a></li>
-                </ul>
+        <header th:fragment="header" class="header">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-success p-0">
+
+                <div class="container">
+                    <i class="fa-solid fa-leaf fa-beat"></i>
+                    <a th:href="@{/}" class="navbar-brand">Proyecto</a>
+                    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <ul class="navbar-nav">
+                            <li><a th:href="@{/Nosotros}" class="nav-link">Nosotros</a></li>
+                            <li><a th:href="@{/}" class="nav-link">Inicio</a></li>
+                            <li><a th:href="@{/mostrarProductos}" class="nav-link" >Herramientas</a></li>
+                            <li> <a th:href="@{/ListaProveedores}" class="nav-link">Proveedores</a></li>
+                            <li><a th:href="@{/Iventario}" class="nav-link">Carrito</a></li>
+                        </ul>
+                    </div>
+                    <ul class="navbar-nav" sec:authorize="isAuthenticated()">
+                        <li class="nav-item text-white my-auto">
+                            <i class="fas fa-users"></i>
+                            <span sec:authentication="name">Juan</span>
+                        </li>
+                        <li class="nav-item my-auto">
+                            <form method="post" th:action="@{/logout}">
+                                <button class="btn btn-dark">
+                                    <li class="fas fa-sign-out-alt"></li>
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+        </header>
+        <footer th:fragment="footer" class="bg-secondary text-white mt-5 p-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <p class="lead text-center">&COPY; Taller martines</p>
+                        <p class="lead text-center">Horario L-V: 8 a 5 pm</p>
+                        <div class="text-center">
+                            <a href="#" class="text-white">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="text-white">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="text-white">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </nav>
 
-</header>
-         <footer th:fragment="footer" class="bg-secondary text-white mt-5 p-2">
-      <div class="container">
-  <div class="row">
-    <div class="col">
-      <p class="lead text-center">&COPY; Taller martines</p>
-      <p class="lead text-center">Horario L-V: 8 a 5 pm</p>
-      <div class="text-center">
-        <a href="#" class="text-white">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="text-white">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="text-white">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-</div>
-
-</footer>
+        </footer>
 
 
     </body>

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+
 @Service
 public class HerramientasServiceImpl implements HerramientaService{
      
@@ -31,8 +32,8 @@ public class HerramientasServiceImpl implements HerramientaService{
        
        @Override
        @Transactional(readOnly = true)
-       public Herramientas getHerramienta(Long IdHerramienta){
-          return herramientasDao.findById(IdHerramienta).orElse(null);
+       public Herramientas getHerramienta(Herramientas herramientas){
+          return herramientasDao.findById(herramientas.getIdHerramienta()).orElse(null);
        
        }
        @Override
@@ -51,7 +52,14 @@ public class HerramientasServiceImpl implements HerramientaService{
        public void updateHerramienta(Herramientas herramienta){
            herramientasDao.save(herramienta);
        }
-               
        
+       @Override
+       @Transactional
+       public Herramientas getHerramientaById(Long idHerramienta){
+           return herramientasDao.findById(idHerramienta).orElse(null);
+       }
+               
+        
+
     
 }

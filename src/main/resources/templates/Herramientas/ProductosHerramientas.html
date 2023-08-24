@@ -25,13 +25,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <p class="card-text" th:text="${herramienta.precio}"></p>
                 
             </div>
+            
             <div class="card-footer">
                 <a th:href="@{/ProductoSeleccionado/{IdHerramienta}(IdHerramienta=${herramienta.IdHerramienta})}" class="btn btn-success">
                     <i class="fas fa-info-circle"></i> Ver detalles
                 </a>
             </div>
+            
 
         </div>
+        
     </div>
 </section>
 

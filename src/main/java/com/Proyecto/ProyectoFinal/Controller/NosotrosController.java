@@ -29,7 +29,7 @@ public class NosotrosController {
      List <Mensaje> mensaje=mensajeService.getMensajes();
      model.addAttribute("mensaje",mensaje);
      model.addAttribute("Total Mensajes",mensaje.size());
-     return "/Nosotros";
+     return "Comunidad/Nosotros";
      
      }
      @PostMapping("/Nosotros/guardar")
