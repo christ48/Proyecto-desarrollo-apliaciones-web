@@ -41,7 +41,7 @@ public class ProveedorController {
 @GetMapping("/ProveedoresEliminar/{id_Proveedor}")
 public String EliminarProveedor(@PathVariable("id_Proveedor") Long id_Proveedor) {
     proveedorService.deleteProveedor(id_Proveedor);
-    return "redirect:/ListaProveedores"; // Cambio aquí
+    return "redirect:/ListaProveedores";
 }
 
    @PostMapping("/ActualizarProveedor")
