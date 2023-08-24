@@ -35,5 +35,9 @@ public class RutasControlloer {
      public String prueba(){
          return"prueba";
      }
+     @GetMapping("/Administracion")
+     public String administracion(){
+         return"Administracion";
+     }
     
 }

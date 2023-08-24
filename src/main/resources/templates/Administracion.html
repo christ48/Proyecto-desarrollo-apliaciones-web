@@ -1,47 +1,63 @@
 <!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:replace="~{layout/nav :: head}">
 
     </head>
+  <header th:replace="~{layout/nav :: header}"></header>
     <body>
-    <header th:replace="~{layout/nav :: header}"></header>
-    <div style="font-size: 48px;">ferreteria martines</div>
-
     <section>
-        <div class="container">
-            <div class="contenedor">
-                <div class="productos">
-                    <div class="contenido">
-                        <p>Herramientas</p>
-                        <a th:href="@{/Iventario}">
-                            <img src="/imagenes/herramientasJardineria.png" alt="Herramientas" id="imagenEnlace">
-                        </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="contenedor">
+                    <div class="productos">
+                        <div class="contenido">
+                            <p>Administrar herramientas</p>
+                            <a th:href="@{/mostrarProductos}">
+                                <img src="/imagenes/herramientasJardineria.png" alt="Herramientas" id="imagenEnlace">
+                            </a>
+                        </div>
                     </div>
-
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contenedor">
+                    <div class="productos">
+                        <div class="contenido">
+                            <p>Administrar Empleados</p>
+                            <a th:href="@{/MostrarEmpleados}">
+                                <img src="/imagenes/empleado.png" alt="Herramientas" id="imagenEnlace">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="contenedor">
+                    <div class="productos">
+                        <div class="contenido">
+                            <p>Administrar Proveedores</p>
+                            <a th:href="@{/ListaProveedores}">
+                                <img src="/imagenes/proveedor.png" alt="Herramientas" id="imagenEnlace">
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="otros-elementos">
-            <div class="nosotros">
-                <h2>Sobre nosotros</h2>
-                <ul>
-                    <li><a th:href="@{/Nosotros}">Nuestra historia</a></li>
-                    <li><a th:href="@{/Nosotros}">Misión y visión</a></li>
-                </ul>
-            </div>
-        </div>
-
-    </section>
-
-    <footer th:replace="~{layout/nav :: footer}"></footer>
-   
-</body>
-
-
-<style>
+        <footer th:replace="~{layout/nav :: footer}"></footer>
+    </body>
+  <style>
     *{
         margin: 0;
 
